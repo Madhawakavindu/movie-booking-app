@@ -34,27 +34,23 @@ class _BottomnavState extends State<Bottomnav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: CurvedNavigationBar(
-          backgroundColor: Colors.transparent,
-          color: Color.fromARGB(255, 204, 151, 7),
-          animationDuration: Duration(milliseconds: 500),
-          onTap: (int index) {
-            setState(() {
-              currentTabIndex = index;
-            });
-          },
-          items: const [
-            Icon(Icons.home, color: Colors.white, size: 30),
-            Icon(Icons.book, color: Colors.white, size: 30),
-            Icon(Icons.person, color: Colors.white, size: 30),
-          ],
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.black,
+        color: Color.fromARGB(255, 204, 151, 7),
+        animationDuration: Duration(milliseconds: 500),
+        onTap: (int index) {
+          setState(() {
+            currentTabIndex = index;
+          });
+        },
+        items: const [
+          Icon(Icons.home, color: Colors.white, size: 30.0),
+          Icon(Icons.book, color: Colors.white, size: 30.0),
+          Icon(Icons.person, color: Colors.white, size: 30.0),
+        ],
       ),
 
+      // 👉 This line is required
       body: pages[currentTabIndex],
     );
   }

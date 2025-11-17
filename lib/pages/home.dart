@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,14 +12,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final List<String> ImageUrl = [
     "images/autoplay/john.png",
-    "images/autoplay/interstellar.png",
     "images/autoplay/96.jpg",
     "images/autoplay/moctail.jpg",
+    "images/autoplay/annabelle.avif",
+    "images/autoplay/koombiyo.jpg",
+    "images/autoplay/nun.jpg",
+    "images/autoplay/SpiderMan.jpg",
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
+      extendBodyBehindAppBar: true,
       body: Container(
         margin: EdgeInsets.only(top: 30.0, left: 20.0),
         child: Column(

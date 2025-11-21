@@ -18,6 +18,8 @@ class _DetailPageState extends State<DetailPage> {
     });
   }
 
+  int track = 0;
+
   @override
   Widget build(BuildContext context) {
     final dates = getFormattedDates();
@@ -91,23 +93,98 @@ class _DetailPageState extends State<DetailPage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: dates.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            width: 100,
-                            margin: EdgeInsets.only(right: 20.0),
-                            decoration: BoxDecoration(color: Color(0xffeed51e)),
-                            child: Center(
-                              child: Text(
-                                dates[index],
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
+                          return GestureDetector(
+                            onTap: () {
+                              track = index;
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: 100,
+                              margin: EdgeInsets.only(right: 20.0),
+                              decoration: BoxDecoration(
+                                color: Color(0xffeed51e),
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: track == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                  width: 5.0,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  dates[index],
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           );
                         },
                       ),
+                    ),
+                    SizedBox(height: 30.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffeed51e),
+                              width: 3.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            "08:00 PM",
+                            style: TextStyle(
+                              color: const Color.fromARGB(189, 255, 255, 255),
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffeed51e),
+                              width: 3.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            "10:00 PM",
+                            style: TextStyle(
+                              color: const Color.fromARGB(189, 255, 255, 255),
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffeed51e),
+                              width: 3.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            "06:00 PM",
+                            style: TextStyle(
+                              color: const Color.fromARGB(189, 255, 255, 255),
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

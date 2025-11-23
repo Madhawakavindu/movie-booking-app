@@ -19,6 +19,7 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   int track = 0;
+  bool eight = false, ten = false, six = false;
 
   @override
   Widget build(BuildContext context) {
@@ -128,28 +129,36 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     SizedBox(height: 30.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xffeed51e),
-                              width: 3.0,
+                        GestureDetector(
+                          onTap: () {
+                            eight = true;
+                            ten = false;
+                            six = false;
+                            setState(() {});
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Color(0xffeed51e),
+                                width: 3.0,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            "08:00 PM",
-                            style: TextStyle(
-                              color: const Color.fromARGB(189, 255, 255, 255),
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.w500,
+                            child: Text(
+                              "08:00 PM",
+                              style: TextStyle(
+                                color: const Color.fromARGB(189, 255, 255, 255),
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Color(0xffeed51e),
@@ -161,7 +170,7 @@ class _DetailPageState extends State<DetailPage> {
                             "10:00 PM",
                             style: TextStyle(
                               color: const Color.fromARGB(189, 255, 255, 255),
-                              fontSize: 22.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
